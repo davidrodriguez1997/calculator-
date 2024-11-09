@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miles Per Gallon Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f5f5f5;
+            margin-top: 50px;
+        }
+        #calculator {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            width: 300px;
+            margin: 0 auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        img {
+            width: 100px;
+            margin-bottom: 10px;
+        }
+        input, button {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin: 5px 0;
+            font-size: 1rem;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #result {
+            margin-top: 15px;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="calculator">
+        <img src="calculator-logo.png" alt="Calculator Logo"> <!-- Placeholder for Logo -->
+
+        <h2>Miles Per Gallon Calculator</h2>
+
+        <label for="miles">Miles Traveled:</label>
+        <input type="number" id="miles" placeholder="Enter miles traveled">
+
+        <label for="gallons">Gallons Used:</label>
+        <input type="number" id="gallons" placeholder="Enter gallons used">
+
+        <button onclick="calculateMPG()">Calculate MPG</button>
+
+        <p id="result">Your Miles per gallon is: </p>
+    </div>
+
+    <script>
+        function calculateMPG() {
+            const milesTraveled = parseFloat(document.getElementById('miles').value);
+            const gallonsOfGasUsed = parseFloat(document.getElementById('gallons').value);
+
+            // Check for valid input
+            if (isNaN(milesTraveled) || isNaN(gallonsOfGasUsed) || gallonsOfGasUsed === 0) {
+                document.getElementById('result').innerText = "Please enter valid numbers!";
+            } else {
+                // Corrected calculation
+                const milesPerGallon = milesTraveled / gallonsOfGasUsed;
+                document.getElementById('result').innerText = "Your Miles per gallon is: " + milesPerGallon.toFixed(2);
+            }
+        }
+    </script>
+
+</body>
+</html>
+
